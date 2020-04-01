@@ -166,7 +166,7 @@ dialogs = [{
     avatar: 'img/ava-3.png',
     dialogName: 'Marry',
     messages: []
-}, ]
+}]
 
 const dialogsList = document.getElementById('dialogsList');
 const dialog = document.getElementById('dialog');
@@ -217,11 +217,11 @@ function searchMessage() {
 search.addEventListener('input', searchMessage);
 
 
-function renderDialog(a) {
+function renderDialog(dialogsItem) {
     dialog.innerText = '';
-    a.messages.forEach(item => {
+    dialogsItem.messages.forEach(item => {
         let message = 'not-my';
-        let ava = a.avatar;
+        let ava = dialogsItem.avatar;
         if (item.name === 'You') {
             message = 'my';
             ava = 'img/userAva.png';
@@ -240,10 +240,10 @@ function renderDialog(a) {
         if (dialog.querySelector('.mark') == null) {
             dialog.lastChild.scrollIntoView({ block: "end" });
         } else {
-            dialog.querySelector('.mark').scrollIntoView({ block: "end", behavior: "smooth" });
+            const lastMesMark = dialog.getElementsByClassName('mark').length - 1;
+            dialog.getElementsByClassName('mark')[lastMesMark].scrollIntoView({ block: "end", behavior: "smooth" });
         }
     });
-
 
     const sendForm = document.getElementById('sendForm');
     sendForm.innerText = '';
@@ -256,11 +256,11 @@ function renderDialog(a) {
     const inputText = document.getElementById('inputText');
 
     sendBut.addEventListener('click', function() {
-        sendMessage(a)
+        sendMessage(dialogsItem)
     });
     inputText.addEventListener('keydown', function() {
         if (event.keyCode == 13) {
-            sendMessage(a);
+            sendMessage(dialogsItem);
         }
     });
 };
@@ -278,7 +278,16 @@ const sendMessage = function(a) {
 };
 
 function renderDialogsList() {
+
+    dialogs.sort(function(a, b) {
+        if (a.messages.slice().pop() == undefined) {
+            return;
+        } else {
+            return b.messages.slice().pop().date - a.messages.slice().pop().date;
+        }
+    });
     dialogsList.innerText = '';
+
     let lastMessage = {};
 
     dialogs.forEach((item, index) => {
