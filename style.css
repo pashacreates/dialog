@@ -1,0 +1,248 @@
+body {
+    font-family: 'Scada', sans-serif;
+    margin: 0;
+    scrollbar-color: #487197 #e8f3fd;
+    scrollbar-width: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #e8f3fd;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #487197;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #45619e;
+}
+
+figure {
+    margin: 5px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+p {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    overflow: hidden;
+}
+
+.my-dialogs-list {
+    width: 370px;
+    padding: 15px;
+    height: 95vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.my-dialogs-list input {
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    outline-color: yellow;
+    color: #3f3f3f;
+    border: 1px solid #487197;
+    border-radius: 3px;
+}
+
+.search-box:after {
+    position: absolute;
+    content: '';
+    background-image: url('img/search.png');
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    top: 22px;
+    right: 18px;
+}
+
+.my-dialogs-list-item {
+    display: flex;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    align-items: center;
+    color: #313131;
+    background-color: #e8f3fd;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .2s ease-in 0s;
+}
+
+.my-dialogs-list-item:hover {
+    margin-right: 0px;
+    margin-left: 10px;
+    color: #ffffff;
+    background-color: #487197;
+}
+
+.my-dialogs-ava {
+    width: 70px;
+    height: 70px;
+}
+
+.my-dialogs-info {
+    margin-left: 10px;
+    height: 100px;
+    width: 100%;
+}
+
+.my-dialogs-info p {
+    width: 100%;
+    font-size: 16px;
+}
+
+.my-dialogs-info span {
+    font-size: .7em;
+    text-align: right;
+    padding-bottom: 15px;
+}
+
+.dialog {
+    position: relative;
+    box-sizing: border-box;
+    width: calc(90% - 30px);
+    height: 100vh;
+    background: linear-gradient(to top, #ffffff, #99bde6);
+}
+
+.dialog ul {
+    max-height: 80%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-top: 0;
+}
+
+.dialog ul>div {
+    text-align: center;
+    height: 100%;
+}
+
+.dialog ul>div img {
+    width: 50%;
+    height: 50%;
+}
+
+.dialog li {
+    border-radius: 5px;
+    display: flex;
+}
+
+.my {
+    flex-direction: row-reverse;
+}
+
+.dialog li img {
+    width: 50px;
+    height: 50px;
+}
+
+.dialog li div {
+    max-width: 60%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #5180ac;
+}
+
+li.my div {
+    background-color: #4688c7;
+}
+
+.dialog li div p:first-child {
+    font-weight: 700;
+}
+
+.dialog li div p:nth-child(2) {
+    padding: 10px;
+}
+
+.dialog li div i {
+    font-size: 0.7rem;
+    color: rgb(226, 226, 226);
+}
+
+.send-form {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 30px;
+}
+
+.send-form form {
+    display: flex;
+    width: 400px;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.send-but {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #487197;
+    cursor: pointer;
+    outline: none;
+}
+
+.input-text {
+    left: -17px;
+    width: calc(100% + 34px);
+    height: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #e8f3fd;
+    border: 1px solid #487197;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-text:focus {
+    border: none;
+    border-bottom: 2px solid #487197;
+    background-color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+li.mark :last-child {
+    color: black;
+    background-color: rgb(255, 255, 0);
+}
+
+@media (max-width: 717px) {
+    .my-dialogs-info {
+        display: none;
+    }
+    .my-dialogs-list {
+        width: 130px;
+        min-width: 120px;
+        padding: 1px;
+    }
+    .send-form form {
+        width: 250px;
+    }
+    .search-box:after {
+        top: 9px;
+        right: 3px;
+    }
+}
